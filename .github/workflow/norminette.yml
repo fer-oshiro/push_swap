@@ -24,4 +24,4 @@ jobs:
 
       - name: Run Norminette
         run: |
-          norminette src/ libft/ # Troque aqui pelas pastas do seu projeto
+          norminette
