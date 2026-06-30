@@ -32,7 +32,6 @@ clean:
 fclean: clean
 	@echo " ${YELLOW} ( -_•) ▄︻デ══━一 ${RESET}everything"
 	@rm -f $(NAME)
-	@rm -rf $(TEST_DIR)
 
 re: fclean all
 
