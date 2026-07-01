@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 18:28:12 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/19 17:35:32 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/05/20 11:02:08 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
 #include "libft.h"
-#include "ft_printf.h"
-# include <stdio.h>
 
-#endif
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t		i;
+	const char	*p;
+
+	i = 0;
+	p = s;
+	while (i < n)
+	{
+		if (p[i] == (char)c)
+			return ((void *)&p[i]);
+		i++;
+	}
+	return (0);
+}

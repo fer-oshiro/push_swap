@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 18:28:12 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/28 13:40:16 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/05/28 13:44:51 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int		i;
 
-#include "libft.h"
-#include "ft_printf.h"
-# include <stdio.h>
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

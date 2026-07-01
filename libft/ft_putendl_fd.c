@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 18:28:12 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/28 13:55:22 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/05/28 14:06:01 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
 #include "libft.h"
-#include "ft_printf.h"
-# include <stdio.h>
 
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
+}

@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 12:31:13 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/06/30 18:28:38 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	main(int argc, char **argv)
 {
 	if (argc > 0)
-		printf("%s", argv[0]);
+		ft_printf("%s\n", argv[0]);
 	return (0);
 }

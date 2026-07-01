@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 18:28:12 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/06/05 13:22:44 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/06/05 13:50:27 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include "libft.h"
 #include "ft_printf.h"
-# include <stdio.h>
 
-#endif
+int	ft_printf_digit(va_list args)
+{
+	int	numb;
+
+	numb = va_arg(args, int);
+	return (ft_putnbr_fd(numb, 1));
+}
