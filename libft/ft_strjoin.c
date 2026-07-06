@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/06 18:19:41 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/20 16:50:20 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/05/20 17:12:29 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (argc > 0)
-		ft_putstr_fd(argv[0], 1);
-	ft_printf("\nhello");
-	return (0);
+	int		len;
+	int		i;
+	char	*str_join;
+
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str_join = malloc((len + 1) * sizeof(char));
+	i = 0;
+	while (*s1)
+	{
+		str_join[i] = *s1;
+		s1++;
+		i++;
+	}
+	while (*s2)
+	{
+		str_join[i] = *s2;
+		s2++;
+		i++;
+	}
+	str_join[i] = '\0';
+	return (str_join);
 }

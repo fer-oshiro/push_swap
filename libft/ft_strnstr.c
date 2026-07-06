@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/06 18:19:41 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/20 11:31:32 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/06/01 16:05:52 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (argc > 0)
-		ft_putstr_fd(argv[0], 1);
-	ft_printf("\nhello");
+	size_t	i;
+	size_t	little_len;
+	int		is_equal;
+
+	i = 0;
+	little_len = ft_strlen(little);
+	if (little_len == 0)
+		return ((char *)big);
+	while (big[i] != '\0' && i < len)
+	{
+		is_equal = ft_strncmp((char *)&big[i], little, little_len);
+		if (i + little_len <= len && is_equal == 0)
+			return ((char *)&big[i]);
+		i++;
+	}
 	return (0);
 }

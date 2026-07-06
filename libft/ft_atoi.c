@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/06 18:19:41 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/05/20 13:37:58 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/06/01 17:46:43 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+static int	ft_isspace(char c)
 {
-	if (argc > 0)
-		ft_putstr_fd(argv[0], 1);
-	ft_printf("\nhello");
-	return (0);
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
+int	ft_atoi(const char *nptr)
+{
+	int	res;
+	int	signal;
+
+	res = 0;
+	signal = 1;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			signal = -1;
+		nptr++;
+	}
+	while (ft_isdigit(*nptr))
+	{
+		res = res * 10 + ((int)*nptr - '0');
+		nptr++;
+	}
+	return (res * signal);
 }
