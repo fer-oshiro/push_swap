@@ -4,16 +4,15 @@ CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
 SRCS = main.c 
 
+
 # Makeflags
 MAKEFLAGS += --no-print-directory
 
+# libft com a printf
 LIBFT_DIR   = ./libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
-PRINTF_DIR  = ./ft_printf
-PRINTF      = $(PRINTF_DIR)/libftprintf.a
-
-INCLUDES    = -Iincludes -I$(LIBFT_DIR) -I$(PRINTF_DIR)/includes
+INCLUDES    = -I includes -I $(LIBFT_DIR)
 
 # Colors
 RED := \033[31m
@@ -25,8 +24,8 @@ RESET := \033[0m
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(PRINTF) $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "\n"
 	@echo "$(BLUE)˖°..˖.˖ִ˖⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆˖..˖ִ˖°.˖.˖°.˖°˖°.˖.˖ִ˖°.˖°☁︎｡⋆｡ ﾟ☾ ˖°.˖..˖.˖ִ˖°..˖.˖.$(RESET)"
 	@echo "$(CYAN)˖°..˖.˖ִ˖°.˖°.˖       .°.˖ִ˖°˖.˖°.˖°˖°.˖.˖ִ˖°.˖°˖°.˖..˖.˖ִ      ｡⋆｡☾ ﾟ｡⋆˖.˖.$(RESET)"
@@ -41,12 +40,10 @@ $(NAME): $(LIBFT) $(PRINTF) $(OBJS)
 	@echo "⋆.˚ ${BLUE} Compiling:${RESET} $< to $@ ˚.⋆"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT):
+$(LIBFT): FORCE
 	@make -C $(LIBFT_DIR)
 
-$(PRINTF):
-	@make -C $(PRINTF_DIR)
-	@echo "\n"
+FORCE: 
 
 clean:
 	@echo "\n"
@@ -54,16 +51,13 @@ clean:
 	@rm -f $(OBJS)
 	@echo " ${BLUE} ( -_•) ▄︻デ══━一 . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.  ${RESET}Cleaning: libft           ${BLUE}  . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.${RESET}"
 	@make -C $(LIBFT_DIR) clean
-	@echo " ${BLUE} ( -_•) ▄︻デ══━一 . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.  ${RESET}Cleaning: printf          ${BLUE}  . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.${RESET}"
-	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	@echo " ${BLUE} ( -_•) ▄︻デ══━一 . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.  ${RESET}Cleaning: everything ${BLUE}       . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.${RESET}"
 	@echo "\n"
 	@rm -f $(NAME)
 	@make -C $(LIBFT_DIR) fclean
-	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re FORCE

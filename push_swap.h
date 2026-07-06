@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/30 18:28:12 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/06 12:49:07 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 # define PUSH_SWAP_H
 
 #include "libft.h"
-#include "ft_printf.h"
 # include <stdio.h>
+
+struct s_push_swap
+{
+	char *nome;
+	int numeroz;	
+} typedef t_push_swap;
+
 
 #endif
