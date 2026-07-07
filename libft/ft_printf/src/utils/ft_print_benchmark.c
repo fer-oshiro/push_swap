@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_benchmark.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/03 11:12:18 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 17:57:42 by aschulz-         ###   ########.fr       */
+/*   Created: 2026/07/07 17:15:46 by aschulz-          #+#    #+#             */
+/*   Updated: 2026/07/07 17:20:07 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "libft.h"
-# include <stdarg.h>
-# include <stdio.h>
-
-//fazer struct
-
-int	ft_printf(const char *format, ...);
-int	ft_printf_char(va_list args);
-int	ft_printf_string(va_list args);
-int	ft_printf_pointer(va_list args);
-int	ft_printf_digit(va_list args);
-int	ft_printf_unsigned_digit(va_list args);
-int	ft_printf_hex(va_list args, int is_upper);
-
-#endif
+void	print_benchmark()
+{
+	
+}
