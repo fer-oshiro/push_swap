@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_flag.c                                       :+:      :+:    :+:   */
+/*   handle_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 16:46:24 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/07/07 14:45:55 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/07/07 15:32:25 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
+void	handle_initialization_data(t_push_swap	*data)
 {
-	int	i;
-
-	i = 1;
-	if (!data)
-		return (FALSE);
-	while (argv[i])
-	{
-		// if(is_strategy_flag(argv[i]))
-			// handle(data)
-		if (is_valid_int(argv[i]) && handle_number_token(argv[i], data)) 
-			continue;
-		else
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
+	data->stack_a = malloc(sizeof(t_stack));
+    data->stack_b = malloc(sizeof(t_stack));
+	if (!data->stack_a || !data->stack_b)
+        return ;
+	data->stack_a->start = NULL;
+    data->stack_a->last = NULL;
+    data->stack_a->len = 0;
+    data->stack_b->start = NULL;
+    data->stack_b->last = NULL;
+    data->stack_b->len = 0;
+    data->total = 0;
 }

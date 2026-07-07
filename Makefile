@@ -1,8 +1,9 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
-SRCS = main.c 
+SRCS = main.c parse_flag.c parse_int.c \
+		handle_data.c handle_number_token.c
 
 
 # Makeflags
