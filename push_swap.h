@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 12:13:24 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:43:50 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_node
 {
 	int		content;
-	t_node	*next;
+	struct s_node	*next;
 }	t_node;
 
 typedef struct s_stack
@@ -48,5 +48,8 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
+t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
+t_bool	is_valid_int(char *token);
+long	ft_atol(char *token);
 
 #endif
