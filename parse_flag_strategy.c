@@ -1,13 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_flag_int.c                                   :+:      :+:    :+:   */
+/*   parse_flag_strategy.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 12:11:14 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 14:53:06 by aschulz-         ###   ########.fr       */
+/*   Created: 2026/07/07 12:24:32 by aschulz-          #+#    #+#             */
+/*   Updated: 2026/07/07 15:54:55 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
+t_bool is_strategy_flag(char *token)
+{
+	if((ft_strncmp(token, "--simple", 9) == 0))
+		return (TRUE);
+	if((ft_strncmp(token, "--medium", 9) == 0))
+		return (TRUE);
+	if((ft_strncmp(token, "--complex", 10) == 0))
+		return (TRUE);
+	if((ft_strncmp(token, "--adaptive", 11) == 0))
+		return (TRUE);
+	if((ft_strncmp(token, "--bench", 8) == 0))
+		return (TRUE);
+	return (FALSE);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 12:14:27 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:50:03 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
 	i = 0;
 	while (argv[i])
 	{
-		// if(is_strategy_flag(argv[i]))
-			// nem ideia :D
+		if(is_strategy_flag(argv[i]) == TRUE)
+		{
+			sort_strategy(argv[i], data); //SO GUARDA A INFORMAÇÃO;
+		}
+			//forçar a usar o algoritimo
 		// if () 
 			// nem ideia 2 :D
 		// else
