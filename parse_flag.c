@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 12:09:07 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/07/07 12:14:27 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
 {
-	t_push_swap	data;
-	
-	if (argc == 0)
-		return (0);
-	
-	if(!parse_flag(argc, argv, &data))
-		return (0);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		// if(is_strategy_flag(argv[i]))
+			// nem ideia :D
+		// if () 
+			// nem ideia 2 :D
+		// else
+		// 	return (FALSE);
+		i++;
+	}
+	return (TRUE);
 }
