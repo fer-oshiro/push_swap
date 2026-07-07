@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/06 18:23:17 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:13:24 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,38 @@
 
 # include "libft.h"
 
+typedef struct s_node
+{
+	int		content;
+	t_node	*next;
+}	t_node;
+
 typedef struct s_stack
 {
-	struct s_stack	*start;
+	t_node	*start;
+	t_node	*last;
+	int		len;
 }	t_stack;
+
+typedef struct s_seila
+{
+	/* data */
+}	t_seila;
+
+
+typedef struct s_push_swap
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		total;
+	// ....
+} t_push_swap;
+
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}	t_bool;
+
 
 #endif
