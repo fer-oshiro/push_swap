@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:41:17 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:33:40 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ typedef enum s_strategy
 
 typedef struct s_push_swap
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	t_strategy strategy;
-	t_bool	bench;
-	int		total;
-} t_push_swap;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	t_strategy	strategy;
+	t_bool		bench;
+	int			total;
+}	t_push_swap;
 
 void	handle_initialization_data(t_push_swap	*data);
 t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
