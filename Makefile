@@ -4,7 +4,8 @@ CC = cc
 OBJS = $(SRCS:.c=.o)
 SRCS = main.c parse_flag.c parse_int.c \
 		handle_data.c handle_number_token.c \
-		parse_flag_strategy.c parse_sort.c
+		parse_flag_strategy.c parse_sort.c \
+		utils_split.c
 
 
 # Makeflags

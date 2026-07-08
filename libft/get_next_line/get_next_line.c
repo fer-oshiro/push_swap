@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 17:48:11 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/18 14:31:21 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:29:16 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	get_res(int fd, char **res)
 
 	if (*res)
 		return ;
-	*res = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	*res = ft_calloc_gnl(BUFFER_SIZE + 1, sizeof(char));
 	if (!*res)
 		return ;
 	bytes_read = read(fd, *res, BUFFER_SIZE);
@@ -37,7 +37,7 @@ static void	get_content(int fd, char **res)
 
 	while (ft_strchr(*res, '\n') == 0)
 	{
-		buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+		buff = ft_calloc_gnl(BUFFER_SIZE + 1, sizeof(char));
 		bytes_read = read(fd, buff, BUFFER_SIZE);
 		if (bytes_read <= 0)
 		{

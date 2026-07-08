@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:10:01 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:41:17 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
+	// get_disorder_metric(&data);
 
 typedef struct s_stack
 {
@@ -52,7 +53,8 @@ t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
 long	ft_atol(char *token);
 t_bool	handle_number_token(char *token, t_push_swap *data);
-
+char	**ft_split_whitespace(char *token);
+void	ft_free_split(char **res);
 void	sort_strategy(char *token, t_push_swap *data);
 
 #endif
