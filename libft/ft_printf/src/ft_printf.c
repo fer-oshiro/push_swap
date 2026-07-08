@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 11:14:26 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 17:12:50 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:05:47 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_printf(int fd, const char *format, ...)
 	char	*flags;
 
 	va_start(args, format);
-	flags = "cspdiuxXf%";
+	flags = "cspdiuxX%";
 	i = 0;
 	res = 0;
 	while (format[i])
