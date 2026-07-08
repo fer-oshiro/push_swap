@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 16:45:46 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:10:24 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,10 @@
 
 # include "libft.h"
 
-typedef struct s_node
-{
-	int		content;
-	t_node	*next;
-}	t_node;
-
 typedef struct s_stack
 {
-	t_node	*start;
-	t_node	*last;
+	t_list	*start;
+	t_list	*last;
 	int		len;
 }	t_stack;
 
@@ -52,5 +46,10 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
+void	handle_initialization_data(t_push_swap	*data);
+t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
+t_bool	is_valid_int(char *token);
+long	ft_atol(char *token);
+t_bool	handle_number_token(char *token, t_push_swap *data);
 
 #endif
