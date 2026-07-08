@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:39:28 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:41:17 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ long	ft_atol(char *token);
 t_bool	handle_number_token(char *token, t_push_swap *data);
 char	**ft_split_whitespace(char *token);
 void	ft_free_split(char **res);
-
 void	sort_strategy(char *token, t_push_swap *data);
 
 #endif

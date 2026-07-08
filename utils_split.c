@@ -6,13 +6,13 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:41:21 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 13:44:40 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:27:40 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "push_swap.h"
 
-static int	is_space(char c)
+static int	ft_is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
@@ -26,12 +26,12 @@ static int	count_words(char *str)
 	in_word = 0;
 	while (*str)
 	{
-		if (!is_space(*str) && !in_word)
+		if (!ft_is_space(*str) && !in_word)
 		{
 			in_word = 1;
 			count++;
 		}
-		else if (is_space(*str))
+		else if (ft_is_space(*str))
 			in_word = 0;
 		str++;
 	}
@@ -45,13 +45,13 @@ static char	*get_next_word(char **str)
 	int		len;
 	int		i;
 
-	while (**str && is_space(**str))
+	while (**str && ft_is_space(**str))
 		(*str)++;
 	start = *str;
-	while (**str && !is_space(**str))
+	while (**str && !ft_is_space(**str))
 		(*str)++;
 	len = *str - start;
-	word = (char *)malloc(sizeof(char) * (len + 1));
+	word = (char *)ft_calloc(sizeof(char), (len + 1));
 	if (!word)
 		return (NULL);
 	i = 0;
@@ -60,7 +60,6 @@ static char	*get_next_word(char **str)
 		word[i] = start[i];
 		i++;
 	}
-	word[i] = '\0';
 	return (word);
 }
 
@@ -73,7 +72,7 @@ char	**ft_split_whitespace(char *token)
 	if (!token)
 		return (NULL);
 	words = count_words(token);
-	res = (char **)malloc(sizeof(char *) * (words + 1));
+	res = (char **)ft_calloc(sizeof(char *), (words + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
@@ -89,7 +88,6 @@ char	**ft_split_whitespace(char *token)
 		}
 		i++;
 	}
-	res[i] = NULL;
 	return (res);
 }
 
@@ -100,7 +98,8 @@ void	ft_free_split(char **res)
 	i = 0;
 	while (res[i])
 	{
-		free(res[i]);
+		if (res[i] != NULL)
+			free(res[i]);
 		i++;
 	}
 	free(res);
