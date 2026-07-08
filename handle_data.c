@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 14:45:55 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 10:10:04 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:32:39 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	handle_initialization_data(t_push_swap	*data)
     data->stack_b->last = NULL;
     data->stack_b->len = 0;
     data->total = 0;
+    data->strategy = STRAT_EMPTY;
 }

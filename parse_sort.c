@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 14:51:58 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/07 16:53:49 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 13:21:56 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void sort_strategy(char *token, t_push_swap *data)
 {
-	if(data->strategy != STRAT_EMPTY && data->bench == TRUE)
-		return (FALSE);
 	if((ft_strncmp(token, "--simple", 9) == 0))
 		data->strategy = STRAT_SIMPLE;
 	if((ft_strncmp(token, "--medium", 9) == 0))

@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 15:33:53 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:22:08 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	printar_content(void *content)
 {
 	int num = (int)(long)content;
-	ft_printf("%d\n", num);
+	ft_printf(1, "%d\n", num);
 }
 
 int	main(int argc, char **argv)
