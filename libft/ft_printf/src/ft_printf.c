@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 11:14:26 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 10:10:36 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:50:41 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static int	ft_chose_format(int fd, char param, va_list args)
 {
 	if (param == 'c')
-		return (ft_printf_char(args));
+		return (ft_printf_char(fd, args));
 	else if (param == 's')
-		return (ft_printf_string(args));
+		return (ft_printf_string(fd, args));
 	else if (param == 'p')
-		return (ft_printf_pointer(args));
+		return (ft_printf_pointer(fd, args));
 	else if (ft_strchr("di", param))
-		return (ft_printf_digit(args));
+		return (ft_printf_digit(fd, args));
 	else if (ft_strchr("u", param))
-		return (ft_printf_unsigned_digit(args));
+		return (ft_printf_unsigned_digit(fd, args));
 	else if (ft_strchr("x", param))
-		return (ft_printf_hex(args, 0));
+		return (ft_printf_hex(fd, args, 0));
 	else if (ft_strchr("X", param))
-		return (ft_printf_hex(args, 1));
+		return (ft_printf_hex(fd, args, 1));
 	else if (ft_strchr("%", param))
 	{
 		ft_putstr_fd("%", 1);
