@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 10:55:04 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 13:45:15 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
 t_bool	is_valid_int(char *token, t_push_swap *data);
 long	ft_atol(char *token);
 t_bool	handle_number_token(char *token, t_push_swap *data);
+char	**ft_split_whitespace(char *token);
+void	ft_free_split(char **res);
 
 #endif
