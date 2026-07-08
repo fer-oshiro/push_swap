@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 11:14:26 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 16:52:08 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:10:36 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_chose_format(char param, va_list args)
+static int	ft_chose_format(int fd, char param, va_list args)
 {
 	if (param == 'c')
 		return (ft_printf_char(args));
@@ -36,7 +36,7 @@ static int	ft_chose_format(char param, va_list args)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int fd, const char *format, ...)
 {
 	int		i;
 	int		res;
@@ -52,11 +52,11 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && ft_strchr(flags, format[i + 1]))
 		{
 			i++;
-			res += ft_chose_format(format[i], args);
+			res += ft_chose_format(fd, format[i], args);
 		}
 		else
 		{
-			ft_putchar_fd(format[i], 1);
+			ft_putchar_fd(format[i], fd);
 			res++;
 		}
 		i++;

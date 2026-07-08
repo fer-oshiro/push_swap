@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/07 16:46:24 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 10:11:33 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
 		return (FALSE);
 	while (argv[i])
 	{
-		// if(is_strategy_flag(argv[i]))
-			// handle(data)
+		if(is_strategy_flag(argv[i]) == TRUE)
+		{
+			sort_strategy(argv[i], data); //SO GUARDA A INFORMAÇÃO;
+		}
 		if (is_valid_int(argv[i]) && handle_number_token(argv[i], data)) 
 			continue;
 		else
