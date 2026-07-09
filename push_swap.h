@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/09 16:08:47 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:36:14 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 void	handle_initialization_data(t_push_swap	*data);
-t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
+t_bool	parse_flag(char **argv, t_push_swap *data);
 t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
 long	ft_atol(char *token);

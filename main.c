@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 18:16:18 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:35:53 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	handle_initialization_data(&data);
 	if (argc <= 1)
 		return (0);
-	if (!parse_flag(argc, argv, &data))
+	if (!parse_flag(argv, &data))
 		return (0);
 	ft_lstiter(data.stack_a->start, &printar_content);
 	return (0);
