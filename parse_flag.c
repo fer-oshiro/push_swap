@@ -3,31 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:09:30 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:35:10 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static	t_bool	validate_and_store_token(char *token, t_push_swap *data)
+{
+	if (is_strategy_flag(token, data))
+		sort_strategy(token, data);
+	else if (is_valid_int(token, data))
+		handle_number_token(token, data);
+	else
+		return (FALSE);
+	return (TRUE);
+}
+
 t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**res;
 
 	i = 1;
 	if (!data)
 		return (FALSE);
 	while (argv[i])
 	{
-		if(is_strategy_flag(argv[i], data) == TRUE)
-			sort_strategy(argv[i], data);
-		if (is_valid_int(argv[i], data))
-			handle_number_token(argv[i], data);
-		else
-			return (FALSE);
+		j = 0;
+		res = ft_split_whitespace(argv[i]);
+		while (res[j])
+		{
+			if (!validate_and_store_token(res[j], data))
+			{
+				ft_free_split(res);
+				return (FALSE);
+			}
+			j++;
+		}
 		i++;
+		ft_free_split(res);
 	}
 	return (TRUE);
 }

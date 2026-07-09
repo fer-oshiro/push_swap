@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:11:14 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 10:56:45 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:43:26 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_bool	validation_duplicated(t_list *lst, long content)
 {
 	while (lst)
 	{
-		if (content == (void *)(long)lst->content)
+		if ((void *)(long)content == (void *)(long)lst->content)
 			return (FALSE);
 		lst = lst->next;
 	}

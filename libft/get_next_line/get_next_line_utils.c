@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 18:06:24 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/06/18 12:32:31 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:28:40 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-char	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_calloc_gnl(size_t nmemb, size_t size)
 {
 	size_t	total_size;
 	char	*ptr;
