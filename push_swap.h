@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 16:33:40 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:53:44 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
-	// get_disorder_metric(&data);
 
 typedef struct s_stack
 {
@@ -56,5 +55,7 @@ t_bool	handle_number_token(char *token, t_push_swap *data);
 char	**ft_split_whitespace(char *token);
 void	ft_free_split(char **res);
 void	sort_strategy(char *token, t_push_swap *data);
+void	handle_swap(t_stack *stack);
+void	handle_swap_a_and_b(t_push_swap *data);
 
 #endif
