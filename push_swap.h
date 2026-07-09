@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 16:33:40 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:08:47 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,19 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
-	// get_disorder_metric(&data);
+
+typedef struct s_node
+{
+    int             content;
+    int             index;
+    struct s_node   *next;
+    struct s_node   *prev;
+}   t_node;
 
 typedef struct s_stack
 {
-	t_list	*start;
-	t_list	*last;
+	t_node	*start;
+	t_node	*last;
 	int		len;
 }	t_stack;
 
