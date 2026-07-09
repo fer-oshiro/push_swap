@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:10:01 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:18:35 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ typedef enum e_bool
 	TRUE
 }	t_bool;
 
+typedef struct s_node
+{
+	void			*content;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
 typedef struct s_stack
 {
-	t_list	*start;
-	t_list	*last;
+	t_node	*start;
+	t_node	*last;
 	int		len;
 }	t_stack;
 
@@ -43,6 +50,7 @@ typedef struct s_push_swap
 	t_stack	*stack_b;
 	t_strategy strategy;
 	t_bool	bench;
+	double	disorder;
 	int		total;
 } t_push_swap;
 
@@ -52,7 +60,7 @@ t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
 long	ft_atol(char *token);
 t_bool	handle_number_token(char *token, t_push_swap *data);
-
+double	compute_disorder(t_push_swap *data);
 void	sort_strategy(char *token, t_push_swap *data);
 
 #endif
