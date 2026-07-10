@@ -6,29 +6,33 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 18:16:18 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:45:50 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printar_content(void *content)
+void	print_content(int content)
 {
-	int	num;
-
-	num = (int)(long)content;
-	ft_printf(1, "%d\n", num);
+	ft_printf(1, "%d\n", content);
 }
 
 int	main(int argc, char **argv)
 {
 	t_push_swap	data;
+	// int disorder;
 
 	handle_initialization_data(&data);
 	if (argc <= 1)
 		return (0);
-	if (!parse_flag(argc, argv, &data))
+	if (!parse_flag(argv, &data))
+	{
+		handle_free_data(&data);
 		return (0);
-	ft_lstiter(data.stack_a->start, &printar_content);
+	}
+	dlst_iter(*data.stack_a, &print_content);
+	// disorder = compute_disorder(&data);
+	// ft_printf(1, "%f", disorder);
+	handle_free_data(&data);
 	return (0);
 }
