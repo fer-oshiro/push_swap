@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 14:38:17 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/09 14:52:05 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:07:44 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ t_bool	handle_number_token(char *token, t_push_swap *data)
 
 	stack_a = data->stack_a;
 	content = ft_atoi(token);
-	node = ft_lstnew((void *)(long)content);
-	stack_a->last = node;
-	ft_lstadd_back(&stack_a->start, node);
-	stack_a->len++;
+	node = dlst_create_node(content);
+	dlst_add_back(&stack_a->start, node);
+	stack_a->size++;
 	return (TRUE);
 }

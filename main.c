@@ -6,18 +6,15 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/09 17:35:53 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:04:07 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printar_content(void *content)
+void	printar_content(int content)
 {
-	int	num;
-
-	num = (int)(long)content;
-	ft_printf(1, "%d\n", num);
+	ft_printf(1, "%d\n", content);
 }
 
 int	main(int argc, char **argv)
@@ -29,6 +26,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!parse_flag(argv, &data))
 		return (0);
-	ft_lstiter(data.stack_a->start, &printar_content);
+	dlst_iter(*data.stack_a, &printar_content);
 	return (0);
 }

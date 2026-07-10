@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:11:14 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 15:43:26 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:06:51 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,19 @@ t_bool	is_only_number(char *token)
 	return (TRUE);
 }
 
-t_bool	validation_duplicated(t_list *lst, long content)
+t_bool	validation_duplicated(t_stack *stack, long content)
 {
-	while (lst)
+	t_node *lst;
+	int		i;
+
+	i = 0;
+	lst = stack->start;
+	while (i < stack->size)
 	{
-		if ((void *)(long)content == (void *)(long)lst->content)
+		if (content == lst->content)
 			return (FALSE);
 		lst = lst->next;
+		i++;
 	}
 	return (TRUE);
 }
@@ -81,5 +87,5 @@ t_bool	is_valid_int(char *token, t_push_swap *data)
 	num = ft_atol(token);
 	if (num < -2147483648 || num > 2147483647)
 		return (FALSE);
-	return (validation_duplicated(data->stack_a->start, num));
+	return (validation_duplicated(data->stack_a, num));
 }
