@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/09 17:33:37 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:10:41 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node	*start;
-	t_node	*last;
-	int		len;
+	int		size;
 }	t_stack;
 
 typedef enum s_strategy
@@ -55,7 +54,7 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 void	handle_initialization_data(t_push_swap	*data);
-t_bool	parse_flag(int argc, char **argv, t_push_swap *data);
+t_bool	parse_flag(char **argv, t_push_swap *data);
 t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
 long	ft_atol(char *token);
@@ -63,5 +62,8 @@ t_bool	handle_number_token(char *token, t_push_swap *data);
 char	**ft_split_whitespace(char *token);
 void	ft_free_split(char **res);
 void	sort_strategy(char *token, t_push_swap *data);
+t_node *dlst_create_node(int content);
+void	dlst_add_back(t_node **start, t_node *new);
+void	dlst_iter(t_stack stack, void (*f)(int));
 
 #endif

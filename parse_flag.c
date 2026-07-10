@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/08 16:35:10 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:04:38 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	t_bool	validate_and_store_token(char *token, t_push_swap *data)
 	return (TRUE);
 }
 
-t_bool	parse_flag(int argc, char **argv, t_push_swap *data)
+t_bool	parse_flag(char **argv, t_push_swap *data)
 {
 	int		i;
 	int		j;

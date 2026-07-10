@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/09 18:17:37 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:10:33 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	print_content(void *content)
 {
-	int	num;
-
-	num = (int)(long)content;
-	ft_printf(1, "%d\n", num);
+	ft_printf(1, "%d\n", content);
 }
 
 int	main(int argc, char **argv)
@@ -27,8 +24,8 @@ int	main(int argc, char **argv)
 	handle_initialization_data(&data);
 	if (argc <= 1)
 		return (0);
-	if (!parse_flag(argc, argv, &data))
+	if (!parse_flag(argv, &data))
 		return (0);
-	ft_lstiter(data.stack_a->start, &print_content);
+	dlst_iter(*data.stack_a, &print_content);
 	return (0);
 }
