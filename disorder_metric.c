@@ -6,7 +6,7 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:40:46 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/09 18:15:58 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:02:22 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,15 @@ double compute_disorder(t_push_swap *data)
 		return (0.0);
 	return ((double)mistakes/ total_pairs);
 }
+
+
+int main(void)
+{
+    double disorder = compute_disorder(&data);
+    printf("Métrica de desordem: %f\n", disorder);
+
+    t_node *tmp;
+    t_node *curr = stack_a.start;
+
+
+    return (0); 
