@@ -6,11 +6,14 @@
 /*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 10:11:00 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:11:11 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:07:35 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+// LEMBRARRRR: mudar o content e o indice (que deve sempre ser o menor indice para o menor valor e o maior para o maior
 
 void operator_sa(t_stack *stack, t_push_swap *data)
 {
@@ -66,7 +69,42 @@ void	operator_sa(t_push_swap *data)
 	// Diferenciação:
 	data->total++; // Contador total para o benchmark [2]
 	// Se você tiver uma estrutura bench separada dentro de data:
+	// data->bench.sa++; / Função genérica que faz a troca física (lógica interna)
+static void	generic_swap(t_stack *stack)
+{
+	t_node	*first;
+	t_node	*second;
+	int		temp;
+
+	// Regra obrigatória: não faz nada se houver menos de 2 elementos [1]
+	if (!stack || stack->len < 2)
+		return ;
+	first = stack->start;
+	second = first->next;
+	temp = first->content;
+	first->content = second->content;
+	second->content = temp;
+	// Se usar índice para o algoritmo adaptativo, troque-o também
+}
+
+void	operator_sa(t_push_swap *data)
+{
+	generic_swap(data->stack_a);
+	// Diferenciação:
+	data->total++; // Contador total para o benchmark [2]
+	// Se você tiver uma estrutura bench separada dentro de data:
 	// data->bench.sa++; 
+	write(1, "sa\n", 3); // Nome da operação exigido [4]
+}
+
+void	operator_sb(t_push_swap *data)
+{
+	generic_swap(data->stack_b);
+	// Diferenciação:
+	data->total++;
+	// data->bench.sb++;
+	write(1, "sb\n", 3);
+}
 	write(1, "sa\n", 3); // Nome da operação exigido [4]
 }
 
