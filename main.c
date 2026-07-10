@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:19:41 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:45:50 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@ void	print_content(int content)
 int	main(int argc, char **argv)
 {
 	t_push_swap	data;
-	int disorder;
+	// int disorder;
 
 	handle_initialization_data(&data);
 	if (argc <= 1)
 		return (0);
 	if (!parse_flag(argv, &data))
+	{
+		handle_free_data(&data);
 		return (0);
+	}
 	dlst_iter(*data.stack_a, &print_content);
-	disorder = compute_disorder(&data);
-	ft_printf(1, "%f", disorder);
+	// disorder = compute_disorder(&data);
+	// ft_printf(1, "%f", disorder);
+	handle_free_data(&data);
 	return (0);
 }
