@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:10:41 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:18:54 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_push_swap
 	t_stack		*stack_b;
 	t_strategy	strategy;
 	t_bool		bench;
-	int			total;
+	int			size;
 }	t_push_swap;
 
 void	handle_initialization_data(t_push_swap	*data);
@@ -65,5 +65,6 @@ void	sort_strategy(char *token, t_push_swap *data);
 t_node *dlst_create_node(int content);
 void	dlst_add_back(t_node **start, t_node *new);
 void	dlst_iter(t_stack stack, void (*f)(int));
+double	compute_disorder(t_push_swap *data);
 
 #endif

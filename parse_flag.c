@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 11:53:25 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:04:38 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:20:11 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ t_bool	parse_flag(char **argv, t_push_swap *data)
 		i++;
 		ft_free_split(res);
 	}
+	data->size = data->stack_a->size;
 	return (TRUE);
 }

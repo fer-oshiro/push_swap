@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:40:46 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/09 18:15:58 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:17:47 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ double compute_disorder(t_push_swap *data)
 	current = data->stack_a->start;
 	while(current != NULL && current->next != NULL)
 	{
-		runner = current->next; // j = i + 1;
+		runner = current->next;
 		while(runner != NULL)
 		{
 			total_pairs++;
