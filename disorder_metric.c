@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:40:46 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/10 12:05:48 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/14 17:02:52 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,41 @@
 
 double compute_disorder(t_push_swap *data)
 {
-	int 	mistakes;
-	int 	total_pairs;
-	t_node	*i_node;
-	t_node	*j_node;
-	int		i;
-	int		j;
+    int     mistakes;
+    t_node  *i_node;
+    t_node  *j_node;
+    int     i;
 
-	total_pairs = 0;
-	mistakes = 0;
-	i = 0;
-	i_node = data->stack_a->start;
-	while(i < data->stack_a->size)
-	{
-		j = i + 1;
-		j_node = i_node->next;
-		while(j < data->stack_a->size)
-		{
-			if (i_node->content > j_node->content)
-				mistakes++;
-			total_pairs++;
-			j_node = j_node->next;
-			j++;
-		}
-		i_node = i_node->next;
-		i++;
-	}
-	return ((double)mistakes / total_pairs);
-	
+    mistakes = 0;
+    i = 0;
+    i_node = data->stack_a->start;
+    while (i < data->stack_a->size)
+    {
+        j_node = i_node->next;
+        while (j_node != NULL && j_node != data->stack_a->start)
+        {
+            if (i_node->content > j_node->content)
+                mistakes++;
+            j_node = j_node->next;
+        }
+        i_node = i_node->next;
+        i++;
+    }
+    if (data->stack_a->size <= 1)
+        return (0.0);
+    return ((double)mistakes / ((data->stack_a->size * (data->stack_a->size - 1)) / 2));
 }
 
+void print_disorder(double disorder)
+{
+    int inteiro;
+    int decimal;
+
+    disorder *= 100;
+    inteiro = (int)disorder;
+    decimal = (int)((disorder - inteiro) * 100);
+    if (decimal < 0)
+        decimal *= -1;
+q/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ft_printf("Desordem: %d.%02d%%\n", inteiro, decimal);
+}
