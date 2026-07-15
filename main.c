@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 11:36:40 by aschulz-         ###   ########.fr       */
+/*   Updated: 2026/07/15 10:39:58 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	print_content(int content)
 int	main(int argc, char **argv)
 {
 	t_push_swap	data;
-	double disorder;
 
 	handle_initialization_data(&data);
 	if (argc <= 1)
@@ -31,9 +30,11 @@ int	main(int argc, char **argv)
 		handle_free_data(&data);
 		return (0);
 	}
+	op_pb(&data);
+	ft_printf(1, "\n\n\n");
 	dlst_iter(*data.stack_a, &print_content);
-	disorder = compute_disorder(&data);
-	printf("%f", disorder);
-	handle_free_data(&data);
+	ft_printf(1, "\n\n\n");
+	dlst_iter(*data.stack_b, &print_content);
+	compute_disorder(&data);
 	return (0);
 }

@@ -7,7 +7,8 @@ SRCS = main.c parse_flag.c parse_int.c \
 		handle_data.c handle_number_token.c \
 		parse_flag_strategy.c parse_sort.c \
 		utils_split.c utils_list.c \
-		disorder_metric.c
+		disorder_metric.c \
+		handle_op_push.c handle_op_rotate.c handle_op_swap.c
 
 
 # Makeflags

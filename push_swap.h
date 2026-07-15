@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:45:20 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/15 11:48:35 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ typedef enum e_bool
 
 typedef struct s_node
 {
-    int             content;
-    int             index;
-    struct s_node   *next;
-    struct s_node   *prev;
-}   t_node;
+	int				content;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
 
 typedef struct s_stack
 {
@@ -63,10 +63,19 @@ t_bool	handle_number_token(char *token, t_push_swap *data);
 char	**ft_split_whitespace(char *token);
 void	ft_free_split(char **res);
 void	sort_strategy(char *token, t_push_swap *data);
-t_node *dlst_create_node(int content);
-void	dlst_add_back(t_node **start, t_node *new);
+
+t_node	*dlst_create_node(int content);
 void	dlst_iter(t_stack stack, void (*f)(int));
-void	dlst_add_front(t_node **start, t_node *new);
+void	dlst_add_back(t_stack *stack, t_node *new);
+void	dlst_add_front(t_stack *stack, t_node *new);
+t_node	*dlst_remove_front(t_stack *stack);
+
 double	compute_disorder(t_push_swap *data);
+
+void	op_pa(t_push_swap *data);
+void	op_pb(t_push_swap *data);
+void	op_rotate(t_push_swap *data, char rotate_type);
+void	op_rotate_reverse(t_push_swap *data, char rotate_type);
+void	op_swap(t_push_swap *data, char rotate_type);
 
 #endif
