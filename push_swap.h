@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 10:19:16 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/15 11:27:29 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ double	compute_disorder(t_push_swap *data);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);
+void	op_rotate(t_push_swap *data, char rotate_type);
+void	op_rotate_reverse(t_push_swap *data, char rotate_type);
 
 #endif
