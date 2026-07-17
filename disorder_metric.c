@@ -6,7 +6,7 @@
 /*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:40:46 by aschulz-          #+#    #+#             */
-/*   Updated: 2026/07/17 09:58:23 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/17 10:03:14 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ float   compute_disorder(t_push_swap *data)
 
 void	print_disorder(float disorder)
 {
-	int		inteiro;
+	int		whole;
 	int		decimal;
 	double	percent;
 
 	if (disorder < 0)
 		disorder = 0;
 	percent = disorder * 100;
-	inteiro = (int)percent;
-	decimal = (int)((percent - inteiro) * 100 + 0.5);
+	whole = (int)percent;
+	decimal = (int)((percent - whole) * 100 + 0.5);
 	if (decimal >= 100)
 	{
-		inteiro++;
+		whole++;
 		decimal = 0;
 	}
-	ft_printf(2, "[bench] disorder:  %d.", inteiro);
+	ft_printf(2, "[bench] disorder:  %d.", whole);
 	if (decimal < 10)
 		ft_printf(2, "0");
 	ft_printf(2, "%d%%\n", decimal);
