@@ -1,3 +1,5 @@
 *.o
 *.a
 push_swap
+compile_commands.js*
+.cache
