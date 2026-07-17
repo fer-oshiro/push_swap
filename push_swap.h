@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:45:20 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/17 09:53:43 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_node *dlst_create_node(int content);
 void	dlst_add_back(t_node **start, t_node *new);
 void	dlst_iter(t_stack stack, void (*f)(int));
 void	dlst_add_front(t_node **start, t_node *new);
-double	compute_disorder(t_push_swap *data);
+float	compute_disorder(t_push_swap *data);
+void	print_disorder(float disorder);
 
 #endif
