@@ -11,29 +11,25 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-# include <stdio.h>
 
-void	print_content(int content)
-{
-	ft_printf(1, "%d\n", content);
-}
+void print_content(int content) { ft_printf(1, "%d\n", content); }
 
-int	main(int argc, char **argv)
-{
-	t_push_swap	data;
-	double disorder;
+int main(int argc, char **argv) {
+  t_push_swap data;
+  float disorder;
 
-	handle_initialization_data(&data);
-	if (argc <= 1)
-		return (0);
-	if (!parse_flag(argv, &data))
-	{
-		handle_free_data(&data);
-		return (0);
-	}
-	dlst_iter(*data.stack_a, &print_content);
-	disorder = compute_disorder(&data);
-	print_disorder(disorder);
-	handle_free_data(&data);
-	return (0);
+  handle_initialization_data(&data);
+  if (argc <= 1)
+    return (0);
+  if (!parse_flag(argv, &data)) {
+    handle_free_data(&data);
+    return (0);
+  }
+  op_pb(&data);
+  ft_printf(1, "\n\n\n");
+  dlst_iter(*data.stack_a, &print_content);
+  disorder = compute_disorder(&data);
+  print_disorder(disorder);
+  handle_free_data(&data);
+  return (0);
 }
