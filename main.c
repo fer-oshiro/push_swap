@@ -6,7 +6,7 @@
 /*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/14 17:43:12 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/18 02:04:37 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	dlst_iter(*data.stack_a, &print_content);
 	disorder = compute_disorder(&data);
 	print_disorder(disorder);
+	set_stack_indexes(data.stack_a);
 	handle_free_data(&data);
 	return (0);
 }
