@@ -5,91 +5,95 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 15:10:00 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:35:11 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/07/15 10:12:34 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/07/15 10:15:08 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node *dlst_create_node(int content)
+t_node	*dlst_create_node(int content)
 {
-	t_node *node;
-	
+	t_node	*node;
+
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return(NULL);
+		return (NULL);
 	node->content = content;
 	node->next = NULL;
 	node->prev = NULL;
-	return(node);
+	return (node);
 }
 
-void	dlst_add_back(t_node **start, t_node *new)
+void	dlst_add_back(t_stack *stack, t_node *new)
 {
 	t_node	*last;
 
-	if (!new)
+	if (!stack || !new)
 		return ;
-	if (!*start)
+	stack->size++;
+	if (!stack->start)
 	{
-		*start = new;
+		stack->start = new;
 		new->next = new;
 		new->prev = new;
 		return ;
 	}
-	last = (*start)->prev;
+	last = stack->start->prev;
 	last->next = new;
 	new->prev = last;
-	new->next = *start;
-	(*start)->prev = new;
+	new->next = stack->start;
+	stack->start->prev = new;
 }
 
-void	dlst_add_front(t_node **start, t_node *new)
+void	dlst_add_front(t_stack *stack, t_node *new)
 {
 	t_node	*last;
 
-	if (!new)
+	if (!stack || !new)
 		return ;
-	if (!*start)
+	stack->size++;
+	if (!stack->start)
 	{
-		*start = new;
+		stack->start = new;
 		new->next = new;
 		new->prev = new;
 		return ;
 	}
-	last = (*start)->prev;
+	last = stack->start->prev;
 	last->next = new;
 	new->prev = last;
-	new->next = *start;
-	(*start)->prev = new;
-	*start = new;
+	new->next = stack->start;
+	stack->start->prev = new;
+	stack->start = new;
 }
-t_node	*dlst_remove_front(t_node **start)
+
+t_node	*dlst_remove_front(t_stack *stack)
 {
-	t_node	*to_remove;
+	t_node	*removed;
 	t_node	*last;
 
-	if (!start || !*start)
+	if (!stack || !stack->start)
 		return (NULL);
-	to_remove = *start;
-	if (to_remove->next == to_remove)
-		*start = NULL;
+	removed = stack->start;
+	stack->size--;
+	if (stack->size == 0)
+		stack->start = NULL;
 	else
 	{
-		last = to_remove->prev;
-		*start = to_remove->next;
-		(*start)->prev = last;
-		last->next = *start;
+		last = removed->prev;
+		stack->start = removed->next;
+		last->next = stack->start;
+		stack->start->prev = last;
 	}
-	to_remove->next = NULL;
-	to_remove->prev = NULL;
-	return (to_remove);
+	removed->next = NULL;
+	removed->prev = NULL;
+	return (removed);
 }
 
-void dlst_iter(t_stack stack, void (*f)(int))
+void	dlst_iter(t_stack stack, void (*f)(int))
 {
-	t_node *node;
+	t_node	*node;
 	int		i;
 
 	i = 0;

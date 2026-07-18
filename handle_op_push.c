@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_number_token.c                              :+:      :+:    :+:   */
+/*   handle_op_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 14:38:17 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 10:37:40 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/07/09 10:15:16 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/07/15 10:36:31 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool	handle_number_token(char *token, t_push_swap *data)
+void	op_pa(t_push_swap *data)
 {
-	t_stack	*stack_a;
 	t_node	*node;
-	int		content;
 
-	stack_a = data->stack_a;
-	content = ft_atoi(token);
-	node = dlst_create_node(content);
-	dlst_add_back(stack_a, node);
-	return (TRUE);
+	node = dlst_remove_front(data->stack_b);
+	if (node == NULL)
+		return ;
+	dlst_add_front(data->stack_a, node);
+	ft_printf(1, "pa\n");
+}
+
+void	op_pb(t_push_swap *data)
+{
+	t_node	*node;
+
+	node = dlst_remove_front(data->stack_a);
+	if (node == NULL)
+		return ;
+	dlst_add_front(data->stack_b, node);
+	ft_printf(1, "pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 14:45:55 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/10 10:51:53 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/15 10:31:37 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	handle_initialization_data(t_push_swap	*data)
 
 static void handle_free_stack(t_stack *stack)
 {
-    int     i;
     t_node *curr;
     t_node *next;
 
@@ -36,14 +35,16 @@ static void handle_free_stack(t_stack *stack)
         return ;
     if (stack->start != NULL && stack->size > 0)
     {
-        i = 0;
+        if (stack->start->prev != NULL)
+            stack->start->prev->next = NULL;
         curr = stack->start;
-        while (i < stack->size)
+        while (curr != NULL)
         {
             next = curr->next;
+            curr->next = NULL;
+            curr->prev = NULL;
             free(curr);
             curr = next;
-            i++;
         }
     }
     free(stack);
@@ -57,4 +58,6 @@ void handle_free_data(t_push_swap *data)
 		handle_free_stack(data->stack_a);
 	if (data->stack_b != NULL)
 		handle_free_stack(data->stack_b);
+    data->stack_a = NULL;
+    data->stack_b = NULL;
 }
