@@ -6,7 +6,7 @@
 /*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/18 02:16:28 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/18 02:36:00 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_node *dlst_remove_front(t_stack *stack);
 float	compute_disorder(t_push_swap *data);
 void	print_disorder(float disorder);
 void	set_stack_indexes(t_stack *stack);
+void	select_algorithm(t_push_swap *data);
 
 void op_pa(t_push_swap *data);
 void op_pb(t_push_swap *data);
