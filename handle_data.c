@@ -26,38 +26,38 @@ void	handle_initialization_data(t_push_swap	*data)
 	data->strategy = STRAT_EMPTY;
 }
 
-static void handle_free_stack(t_stack *stack)
+static void	handle_free_stack(t_stack *stack)
 {
-    t_node *curr;
-    t_node *next;
+	t_node	*curr;
+	t_node	*next;
 
-    if (stack == NULL)
-        return ;
-    if (stack->start != NULL && stack->size > 0)
-    {
-        if (stack->start->prev != NULL)
-            stack->start->prev->next = NULL;
-        curr = stack->start;
-        while (curr != NULL)
-        {
-            next = curr->next;
-            curr->next = NULL;
-            curr->prev = NULL;
-            free(curr);
-            curr = next;
-        }
-    }
-    free(stack);
+	if (stack == NULL)
+		return ;
+	if (stack->start != NULL && stack->size > 0)
+	{
+		if (stack->start->prev != NULL)
+			stack->start->prev->next = NULL;
+		curr = stack->start;
+		while (curr != NULL)
+		{
+			next = curr->next;
+			curr->next = NULL;
+			curr->prev = NULL;
+			free(curr);
+			curr = next;
+		}
+	}
+	free(stack);
 }
 
-void handle_free_data(t_push_swap *data)
+void	handle_free_data(t_push_swap *data)
 {
 	if (data == NULL)
-        return ;
+		return ;
 	if (data->stack_a != NULL)
 		handle_free_stack(data->stack_a);
 	if (data->stack_b != NULL)
 		handle_free_stack(data->stack_b);
-    data->stack_a = NULL;
-    data->stack_b = NULL;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
 }
