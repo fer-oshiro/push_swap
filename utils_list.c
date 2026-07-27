@@ -20,6 +20,7 @@ t_node	*dlst_create_node(int content)
 	if (!node)
 		return (NULL);
 	node->content = content;
+	node->index = 0;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);

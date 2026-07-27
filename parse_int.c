@@ -55,7 +55,7 @@ t_bool	is_only_number(char *token)
 
 t_bool	validation_duplicated(t_stack *stack, long content)
 {
-	t_node *lst;
+	t_node	*lst;
 	int		i;
 
 	i = 0;
