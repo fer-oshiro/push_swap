@@ -43,7 +43,7 @@ RESET := \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo -e "⋆.˚ ${BLUE} Creating:${RESET} libft  ˚.⋆"
+	@printf '%b\n' "⋆.˚ ${BLUE} Creating:${RESET} libft  ˚.⋆"
 	@$(AR) $(NAME) $(OBJS)
 
 %.o: %.c

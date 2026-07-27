@@ -36,7 +36,6 @@ void	set_stack_indexes(t_stack *stack)
 			j++;
 		}
 		curr->index = count;
-		printf("val: %d\n index: %d\n", curr->content, curr->index);
 		curr = curr->next;
 		i++;
 	}

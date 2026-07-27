@@ -69,6 +69,10 @@ void	dlst_add_front(t_stack *start, t_node *new);
 void	dlst_add_back(t_stack *stack, t_node *new);
 void	dlst_iter(t_stack stack, void (*f)(int));
 t_node	*dlst_remove_front(t_stack *stack);
+t_node	*stack_min(t_stack *stack);
+t_node	*stack_max(t_stack *stack);
+int		stack_position(t_stack *stack, t_node *target);
+int		rotation_cost(t_stack *stack, t_node *target);
 
 float	compute_disorder(t_push_swap *data);
 void	print_disorder(float disorder);
