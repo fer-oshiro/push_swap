@@ -97,8 +97,14 @@ void	set_stack_indexes(t_stack *stack);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);
-void	op_rotate(t_push_swap *data, char stack_id);
-void	op_rotate_reverse(t_push_swap *data, char stack_id);
-void	op_swap(t_push_swap *data, char stack_id);
+void	op_sa(t_push_swap *data);
+void	op_sb(t_push_swap *data);
+void	op_ss(t_push_swap *data);
+void	op_ra(t_push_swap *data);
+void	op_rb(t_push_swap *data);
+void	op_rr(t_push_swap *data);
+void	op_rra(t_push_swap *data);
+void	op_rrb(t_push_swap *data);
+void	op_rrr(t_push_swap *data);
 
 #endif

@@ -32,27 +32,34 @@ static t_bool	dlst_swap(t_stack *stack)
 	return (TRUE);
 }
 
-void	op_swap(t_push_swap *data, char stack_id)
+void	op_sa(t_push_swap *data)
 {
-	if (stack_id == 'a' && dlst_swap(data->stack_a))
-	{
-		data->ops.sa++;
-		data->ops.total++;
-		ft_printf(1, "sa\n");
+	if (!dlst_swap(data->stack_a))
 		return ;
-	}
-	if (stack_id == 'b' && dlst_swap(data->stack_b))
-	{
-		data->ops.sb++;
-		data->ops.total++;
-		ft_printf(1, "sb\n");
+	data->ops.sa++;
+	data->ops.total++;
+	ft_printf(1, "sa\n");
+}
+
+void	op_sb(t_push_swap *data)
+{
+	if (!dlst_swap(data->stack_b))
 		return ;
-	}
-	if (stack_id != 'a' && stack_id != 'b'
-		&& (dlst_swap(data->stack_a) | dlst_swap(data->stack_b)))
-	{
-		data->ops.ss++;
-		data->ops.total++;
-		ft_printf(1, "ss\n");
-	}
+	data->ops.sb++;
+	data->ops.total++;
+	ft_printf(1, "sb\n");
+}
+
+void	op_ss(t_push_swap *data)
+{
+	t_bool	swapped_a;
+	t_bool	swapped_b;
+
+	swapped_a = dlst_swap(data->stack_a);
+	swapped_b = dlst_swap(data->stack_b);
+	if (!swapped_a && !swapped_b)
+		return ;
+	data->ops.ss++;
+	data->ops.total++;
+	ft_printf(1, "ss\n");
 }
