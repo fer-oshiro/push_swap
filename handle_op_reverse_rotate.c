@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_op_rotate.c                                 :+:      :+:    :+:   */
+/*   handle_op_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 10:15:20 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 11:51:21 by fsayuri-         ###   ########.fr       */
+/*   Created: 2026/07/28 00:00:00 by fsayuri-          #+#    #+#             */
+/*   Updated: 2026/07/28 00:00:00 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_bool	dlst_rotate(t_stack *stack)
+static t_bool	dlst_reverse_rotate(t_stack *stack)
 {
 	if (!stack || stack->size < 2)
 		return (FALSE);
-	stack->start = stack->start->next;
+	stack->start = stack->start->prev;
 	return (TRUE);
 }
 
-void	op_ra(t_push_swap *data)
+void	op_rra(t_push_swap *data)
 {
-	if (!dlst_rotate(data->stack_a))
+	if (!dlst_reverse_rotate(data->stack_a))
 		return ;
-	data->ops.ra++;
+	data->ops.rra++;
 	data->ops.total++;
-	ft_printf(1, "ra\n");
+	ft_printf(1, "rra\n");
 }
 
-void	op_rb(t_push_swap *data)
+void	op_rrb(t_push_swap *data)
 {
-	if (!dlst_rotate(data->stack_b))
+	if (!dlst_reverse_rotate(data->stack_b))
 		return ;
-	data->ops.rb++;
+	data->ops.rrb++;
 	data->ops.total++;
-	ft_printf(1, "rb\n");
+	ft_printf(1, "rrb\n");
 }
 
-void	op_rr(t_push_swap *data)
+void	op_rrr(t_push_swap *data)
 {
 	t_bool	rotated_a;
 	t_bool	rotated_b;
 
-	rotated_a = dlst_rotate(data->stack_a);
-	rotated_b = dlst_rotate(data->stack_b);
+	rotated_a = dlst_reverse_rotate(data->stack_a);
+	rotated_b = dlst_reverse_rotate(data->stack_b);
 	if (!rotated_a && !rotated_b)
 		return ;
-	data->ops.rr++;
+	data->ops.rrr++;
 	data->ops.total++;
-	ft_printf(1, "rr\n");
+	ft_printf(1, "rrr\n");
 }

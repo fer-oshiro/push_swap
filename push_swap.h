@@ -44,6 +44,22 @@ typedef enum s_strategy
 	STRAT_ADAPTIVE
 }	t_strategy;
 
+typedef struct s_op_count
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_op_count;
+
 typedef struct s_push_swap
 {
 	t_stack		*stack_a;
@@ -51,10 +67,11 @@ typedef struct s_push_swap
 	t_strategy	strategy;
 	t_bool		bench;
 	int			size;
+	t_op_count	ops;
 }	t_push_swap;
 
-void	handle_initialization_data(t_push_swap *data);
-void	handle_free_data(t_push_swap *data);
+void	init_data(t_push_swap *data);
+void	free_data(t_push_swap *data);
 t_bool	parse_flag(char **argv, t_push_swap *data);
 t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
@@ -74,14 +91,21 @@ t_node	*stack_max(t_stack *stack);
 int		stack_position(t_stack *stack, t_node *target);
 int		rotation_cost(t_stack *stack, t_node *target);
 
-float	compute_disorder(t_push_swap *data);
-void	print_disorder(float disorder);
+double	compute_disorder(t_push_swap *data);
+void	print_disorder(double disorder);
+void	print_benchmark(t_push_swap *data, double disorder);
 void	set_stack_indexes(t_stack *stack);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);
-void	op_rotate(t_push_swap *data, char rotate_type);
-void	op_rotate_reverse(t_push_swap *data, char rotate_type);
-void	op_swap(t_push_swap *data, char rotate_type);
+void	op_sa(t_push_swap *data);
+void	op_sb(t_push_swap *data);
+void	op_ss(t_push_swap *data);
+void	op_ra(t_push_swap *data);
+void	op_rb(t_push_swap *data);
+void	op_rr(t_push_swap *data);
+void	op_rra(t_push_swap *data);
+void	op_rrb(t_push_swap *data);
+void	op_rrr(t_push_swap *data);
 
 #endif

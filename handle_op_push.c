@@ -20,6 +20,8 @@ void	op_pa(t_push_swap *data)
 	if (node == NULL)
 		return ;
 	dlst_add_front(data->stack_a, node);
+	data->ops.pa++;
+	data->ops.total++;
 	ft_printf(1, "pa\n");
 }
 
@@ -31,5 +33,7 @@ void	op_pb(t_push_swap *data)
 	if (node == NULL)
 		return ;
 	dlst_add_front(data->stack_b, node);
+	data->ops.pb++;
+	data->ops.total++;
 	ft_printf(1, "pb\n");
 }
