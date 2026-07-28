@@ -91,8 +91,9 @@ t_node	*stack_max(t_stack *stack);
 int		stack_position(t_stack *stack, t_node *target);
 int		rotation_cost(t_stack *stack, t_node *target);
 
-float	compute_disorder(t_push_swap *data);
-void	print_disorder(float disorder);
+double	compute_disorder(t_push_swap *data);
+void	print_disorder(double disorder);
+void	print_benchmark(t_push_swap *data, double disorder);
 void	set_stack_indexes(t_stack *stack);
 
 void	op_pa(t_push_swap *data);

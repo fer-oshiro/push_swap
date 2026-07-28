@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	disorder = compute_disorder(&data);
 	print_disorder(disorder);
 	set_stack_indexes(data.stack_a);
+	print_benchmark(&data, disorder);
 	free_data(&data);
 	return (0);
 }

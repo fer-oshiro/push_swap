@@ -30,7 +30,7 @@ static int	ft_chose_format(int fd, char param, va_list args)
 		return (ft_printf_hex(fd, args, 1));
 	else if (ft_strchr("%", param))
 	{
-		ft_putstr_fd("%", 1);
+		ft_putstr_fd("%", fd);
 		return (1);
 	}
 	return (0);
