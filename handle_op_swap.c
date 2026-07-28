@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	dlst_swap(t_stack *stack)
+static t_bool	dlst_swap(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
@@ -20,7 +20,7 @@ static void	dlst_swap(t_stack *stack)
 	int		temp_index;
 
 	if (!stack || stack->size < 2)
-		return ;
+		return (FALSE);
 	first = stack->start;
 	second = first->next;
 	temp_value = first->content;
@@ -29,23 +29,30 @@ static void	dlst_swap(t_stack *stack)
 	temp_index = first->index;
 	first->index = second->index;
 	second->index = temp_index;
+	return (TRUE);
 }
 
-void	op_swap(t_push_swap *data, char rotate_type)
+void	op_swap(t_push_swap *data, char stack_id)
 {
-	if (rotate_type == 'a')
+	if (stack_id == 'a' && dlst_swap(data->stack_a))
 	{
-		dlst_swap(data->stack_a);
-		ft_printf(1, "sa");
+		data->ops.sa++;
+		data->ops.total++;
+		ft_printf(1, "sa\n");
 		return ;
 	}
-	if (rotate_type == 'b')
+	if (stack_id == 'b' && dlst_swap(data->stack_b))
 	{
-		dlst_swap(data->stack_b);
-		ft_printf(1, "sb");
+		data->ops.sb++;
+		data->ops.total++;
+		ft_printf(1, "sb\n");
 		return ;
 	}
-	dlst_swap(data->stack_a);
-	dlst_swap(data->stack_b);
-	ft_printf(1, "ss");
+	if (stack_id != 'a' && stack_id != 'b'
+		&& (dlst_swap(data->stack_a) | dlst_swap(data->stack_b)))
+	{
+		data->ops.ss++;
+		data->ops.total++;
+		ft_printf(1, "ss\n");
+	}
 }

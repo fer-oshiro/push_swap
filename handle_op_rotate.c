@@ -12,54 +12,69 @@
 
 #include "push_swap.h"
 
-static void	dlst_rotate(t_stack *stack)
+static t_bool	dlst_rotate(t_stack *stack)
 {
 	if (!stack || stack->size < 2)
-		return ;
+		return (FALSE);
 	stack->start = stack->start->next;
+	return (TRUE);
 }
 
-void	op_rotate(t_push_swap *data, char rotate_type)
+void	op_rotate(t_push_swap *data, char stack_id)
 {
-	if (rotate_type == 'a')
+	if (stack_id == 'a' && dlst_rotate(data->stack_a))
 	{
-		dlst_rotate(data->stack_a);
-		ft_printf(1, "ra");
+		data->ops.ra++;
+		data->ops.total++;
+		ft_printf(1, "ra\n");
 		return ;
 	}
-	if (rotate_type == 'b')
+	if (stack_id == 'b' && dlst_rotate(data->stack_b))
 	{
-		dlst_rotate(data->stack_b);
-		ft_printf(1, "rb");
+		data->ops.rb++;
+		data->ops.total++;
+		ft_printf(1, "rb\n");
 		return ;
 	}
-	dlst_rotate(data->stack_a);
-	dlst_rotate(data->stack_b);
-	ft_printf(1, "rr");
+	if (stack_id != 'a' && stack_id != 'b'
+		&& (dlst_rotate(data->stack_a) | dlst_rotate(data->stack_b)))
+	{
+		data->ops.rr++;
+		data->ops.total++;
+		ft_printf(1, "rr\n");
+	}
 }
 
-static void	dlst_reverse_rotate(t_stack *stack)
+static t_bool	dlst_reverse_rotate(t_stack *stack)
 {
 	if (!stack || stack->size < 2)
-		return ;
+		return (FALSE);
 	stack->start = stack->start->prev;
+	return (TRUE);
 }
 
-void	op_rotate_reverse(t_push_swap *data, char rotate_type)
+void	op_rotate_reverse(t_push_swap *data, char stack_id)
 {
-	if (rotate_type == 'a')
+	if (stack_id == 'a' && dlst_reverse_rotate(data->stack_a))
 	{
-		dlst_reverse_rotate(data->stack_a);
-		ft_printf(1, "rra");
+		data->ops.rra++;
+		data->ops.total++;
+		ft_printf(1, "rra\n");
 		return ;
 	}
-	if (rotate_type == 'b')
+	if (stack_id == 'b' && dlst_reverse_rotate(data->stack_b))
 	{
-		dlst_reverse_rotate(data->stack_b);
-		ft_printf(1, "rrb");
+		data->ops.rrb++;
+		data->ops.total++;
+		ft_printf(1, "rrb\n");
 		return ;
 	}
-	dlst_reverse_rotate(data->stack_a);
-	dlst_reverse_rotate(data->stack_b);
-	ft_printf(1, "rrr");
+	if (stack_id != 'a' && stack_id != 'b'
+		&& (dlst_reverse_rotate(data->stack_a)
+			| dlst_reverse_rotate(data->stack_b)))
+	{
+		data->ops.rrr++;
+		data->ops.total++;
+		ft_printf(1, "rrr\n");
+	}
 }

@@ -12,7 +12,23 @@
 
 #include "push_swap.h"
 
-void	handle_initialization_data(t_push_swap	*data)
+static void	init_op_count(t_op_count *ops)
+{
+	ops->sa = 0;
+	ops->sb = 0;
+	ops->ss = 0;
+	ops->pa = 0;
+	ops->pb = 0;
+	ops->ra = 0;
+	ops->rb = 0;
+	ops->rr = 0;
+	ops->rra = 0;
+	ops->rrb = 0;
+	ops->rrr = 0;
+	ops->total = 0;
+}
+
+void	init_data(t_push_swap	*data)
 {
 	data->stack_a = malloc(sizeof(t_stack));
 	data->stack_b = malloc(sizeof(t_stack));
@@ -24,6 +40,8 @@ void	handle_initialization_data(t_push_swap	*data)
 	data->stack_b->size = 0;
 	data->size = 0;
 	data->strategy = STRAT_EMPTY;
+	data->bench = FALSE;
+	init_op_count(&data->ops);
 }
 
 static void	handle_free_stack(t_stack *stack)
@@ -50,7 +68,7 @@ static void	handle_free_stack(t_stack *stack)
 	free(stack);
 }
 
-void	handle_free_data(t_push_swap *data)
+void	free_data(t_push_swap *data)
 {
 	if (data == NULL)
 		return ;

@@ -44,6 +44,22 @@ typedef enum s_strategy
 	STRAT_ADAPTIVE
 }	t_strategy;
 
+typedef struct s_op_count
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_op_count;
+
 typedef struct s_push_swap
 {
 	t_stack		*stack_a;
@@ -51,10 +67,11 @@ typedef struct s_push_swap
 	t_strategy	strategy;
 	t_bool		bench;
 	int			size;
+	t_op_count	ops;
 }	t_push_swap;
 
-void	handle_initialization_data(t_push_swap *data);
-void	handle_free_data(t_push_swap *data);
+void	init_data(t_push_swap *data);
+void	free_data(t_push_swap *data);
 t_bool	parse_flag(char **argv, t_push_swap *data);
 t_bool	is_valid_int(char *token, t_push_swap *data);
 t_bool	is_strategy_flag(char *tokien, t_push_swap *data);
@@ -80,8 +97,8 @@ void	set_stack_indexes(t_stack *stack);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);
-void	op_rotate(t_push_swap *data, char rotate_type);
-void	op_rotate_reverse(t_push_swap *data, char rotate_type);
-void	op_swap(t_push_swap *data, char rotate_type);
+void	op_rotate(t_push_swap *data, char stack_id);
+void	op_rotate_reverse(t_push_swap *data, char stack_id);
+void	op_swap(t_push_swap *data, char stack_id);
 
 #endif
