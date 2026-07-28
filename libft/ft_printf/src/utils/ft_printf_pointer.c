@@ -21,7 +21,7 @@ static int	ft_puthex_long(int fd, unsigned long num)
 	count = 0;
 	if (num >= 16)
 		count += ft_puthex_long(fd, num / 16);
-	ft_putchar_fd(base[num % 16], 1);
+	ft_putchar_fd(base[num % 16], fd);
 	count++;
 	return (count);
 }
@@ -35,10 +35,10 @@ int	ft_printf_pointer(int fd, va_list args)
 	count = 0;
 	if (ptr == 0)
 	{
-		ft_putstr_fd("(nil)", 1);
+		ft_putstr_fd("(nil)", fd);
 		return (5);
 	}
-	ft_putstr_fd("0x", 1);
+	ft_putstr_fd("0x", fd);
 	count += ft_puthex_long(fd, ptr) + 2;
 	return (count);
 }

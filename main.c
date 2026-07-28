@@ -12,11 +12,6 @@
 
 #include "push_swap.h"
 
-void	print_content(int content)
-{
-	ft_printf(1, "%d\n", content);
-}
-
 int	main(int argc, char **argv)
 {
 	t_push_swap	data;
@@ -30,10 +25,9 @@ int	main(int argc, char **argv)
 		free_data(&data);
 		return (0);
 	}
-	dlst_iter(*data.stack_a, &print_content);
 	disorder = compute_disorder(&data);
-	print_disorder(disorder);
 	set_stack_indexes(data.stack_a);
+	print_benchmark(&data, disorder);
 	free_data(&data);
 	return (0);
 }

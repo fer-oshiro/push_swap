@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-float	compute_disorder(t_push_swap *data)
+double	compute_disorder(t_push_swap *data)
 {
 	int		mistakes;
 	t_node	*i_node;
@@ -36,11 +36,11 @@ float	compute_disorder(t_push_swap *data)
 	}
 	if (data->stack_a->size <= 1)
 		return (0.0);
-	return ((float)mistakes
+	return ((double)mistakes
 		/ ((data->stack_a->size * (data->stack_a->size - 1)) / 2));
 }
 
-void	print_disorder(float disorder)
+void	print_disorder(double disorder)
 {
 	int		whole;
 	int		decimal;
