@@ -23,31 +23,46 @@ static	t_bool	validate_and_store_token(char *token, t_push_swap *data)
 	return (TRUE);
 }
 
-t_bool	parse_flag(char **argv, t_push_swap *data)
+static t_bool	parse_argument(char *argument, t_push_swap *data)
 {
-	int		i;
 	int		j;
 	char	**res;
+
+	j = 0;
+	res = ft_split_whitespace(argument);
+	if (!res || !res[0])
+	{
+		free(res);
+		return (FALSE);
+	}
+	while (res[j])
+	{
+		if (!validate_and_store_token(res[j], data))
+		{
+			ft_free_split(res);
+			return (FALSE);
+		}
+		j++;
+	}
+	ft_free_split(res);
+	return (TRUE);
+}
+
+t_bool	parse_flag(char **argv, t_push_swap *data)
+{
+	int	i;
 
 	i = 1;
 	if (!data)
 		return (FALSE);
 	while (argv[i])
 	{
-		j = 0;
-		res = ft_split_whitespace(argv[i]);
-		while (res[j])
-		{
-			if (!validate_and_store_token(res[j], data))
-			{
-				ft_free_split(res);
-				return (FALSE);
-			}
-			j++;
-		}
+		if (!parse_argument(argv[i], data))
+			return (FALSE);
 		i++;
-		ft_free_split(res);
 	}
+	if (data->stack_a->size == 0)
+		return (FALSE);
 	data->size = data->stack_a->size;
 	return (TRUE);
 }
