@@ -17,13 +17,14 @@ int	main(int argc, char **argv)
 	t_push_swap	data;
 	double		disorder;
 
-	init_data(&data);
 	if (argc <= 1)
 		return (0);
+	init_data(&data);
 	if (!parse_flag(argv, &data))
 	{
+		ft_putstr_fd("Error\n", 2);
 		free_data(&data);
-		return (0);
+		return (1);
 	}
 	disorder = compute_disorder(&data);
 	if (disorder != 0.0)
