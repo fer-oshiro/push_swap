@@ -26,12 +26,12 @@ static int	ft_puthex_long(int fd, unsigned long num)
 	return (count);
 }
 
-int	ft_printf_pointer(int fd, va_list args)
+int	ft_printf_pointer(int fd, void *pointer)
 {
 	unsigned long	ptr;
 	int				count;
 
-	ptr = va_arg(args, unsigned long);
+	ptr = (unsigned long)pointer;
 	count = 0;
 	if (ptr == 0)
 	{

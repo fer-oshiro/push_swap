@@ -28,10 +28,7 @@ static int	ft_hex(int fd, unsigned int num, int is_upper)
 	return (count);
 }
 
-int	ft_printf_hex(int fd, va_list args, int is_upper)
+int	ft_printf_hex(int fd, unsigned int number, int is_upper)
 {
-	unsigned int	num;
-
-	num = va_arg(args, unsigned int);
-	return (ft_hex(fd, num, is_upper));
+	return (ft_hex(fd, number, is_upper));
 }

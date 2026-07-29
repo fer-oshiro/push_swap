@@ -18,11 +18,11 @@
 # include <stdio.h>
 
 int	ft_printf(int fd, const char *format, ...);
-int	ft_printf_char(int fd, va_list args);
-int	ft_printf_string(int fd, va_list args);
-int	ft_printf_pointer(int fd, va_list args);
-int	ft_printf_digit(int fd, va_list args);
-int	ft_printf_unsigned_digit(int fd, va_list args);
-int	ft_printf_hex(int fd, va_list args, int is_upper);
+int	ft_printf_char(int fd, int character);
+int	ft_printf_string(int fd, char *string);
+int	ft_printf_pointer(int fd, void *pointer);
+int	ft_printf_digit(int fd, int number);
+int	ft_printf_unsigned_digit(int fd, unsigned int number);
+int	ft_printf_hex(int fd, unsigned int number, int is_upper);
 
 #endif
