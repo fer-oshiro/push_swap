@@ -26,7 +26,11 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	disorder = compute_disorder(&data);
-	set_stack_indexes(data.stack_a);
+	if (disorder != 0.0)
+	{
+		set_stack_indexes(data.stack_a);
+		// sort_stack(&data);
+	}
 	print_benchmark(&data, disorder);
 	free_data(&data);
 	return (0);
