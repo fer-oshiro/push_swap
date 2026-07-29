@@ -12,22 +12,23 @@
 
 #include "ft_printf.h"
 
-static int	ft_chose_format(int fd, char param, va_list args)
+static int	ft_chose_format(int fd, char param, va_list *args)
 {
 	if (param == 'c')
-		return (ft_printf_char(fd, args));
+		return (ft_printf_char(fd, va_arg(*args, int)));
 	else if (param == 's')
-		return (ft_printf_string(fd, args));
+		return (ft_printf_string(fd, va_arg(*args, char *)));
 	else if (param == 'p')
-		return (ft_printf_pointer(fd, args));
+		return (ft_printf_pointer(fd, va_arg(*args, void *)));
 	else if (ft_strchr("di", param))
-		return (ft_printf_digit(fd, args));
+		return (ft_printf_digit(fd, va_arg(*args, int)));
 	else if (ft_strchr("u", param))
-		return (ft_printf_unsigned_digit(fd, args));
+		return (ft_printf_unsigned_digit(fd,
+				va_arg(*args, unsigned int)));
 	else if (ft_strchr("x", param))
-		return (ft_printf_hex(fd, args, 0));
+		return (ft_printf_hex(fd, va_arg(*args, unsigned int), 0));
 	else if (ft_strchr("X", param))
-		return (ft_printf_hex(fd, args, 1));
+		return (ft_printf_hex(fd, va_arg(*args, unsigned int), 1));
 	else if (ft_strchr("%", param))
 	{
 		ft_putstr_fd("%", fd);
@@ -52,7 +53,7 @@ int	ft_printf(int fd, const char *format, ...)
 		if (format[i] == '%' && ft_strchr(flags, format[i + 1]))
 		{
 			i++;
-			res += ft_chose_format(fd, format[i], args);
+			res += ft_chose_format(fd, format[i], &args);
 		}
 		else
 		{

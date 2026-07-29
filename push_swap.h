@@ -95,6 +95,7 @@ double	compute_disorder(t_push_swap *data);
 void	print_disorder(double disorder);
 void	print_benchmark(t_push_swap *data, double disorder);
 void	set_stack_indexes(t_stack *stack);
+void	sort_small(t_push_swap *data);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);

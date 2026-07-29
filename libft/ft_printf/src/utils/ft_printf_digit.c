@@ -12,10 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_digit(int fd, va_list args)
+int	ft_printf_digit(int fd, int number)
 {
-	int	numb;
-
-	numb = va_arg(args, int);
-	return (ft_putnbr_fd(numb, fd));
+	return (ft_putnbr_fd(number, fd));
 }

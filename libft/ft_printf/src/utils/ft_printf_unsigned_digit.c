@@ -26,10 +26,7 @@ static int	ft_unsigned_putnbr(int fd, unsigned int n)
 	return (count);
 }
 
-int	ft_printf_unsigned_digit(int fd, va_list args)
+int	ft_printf_unsigned_digit(int fd, unsigned int number)
 {
-	unsigned int	numb;
-
-	numb = va_arg(args, unsigned int);
-	return (ft_unsigned_putnbr(fd, numb));
+	return (ft_unsigned_putnbr(fd, number));
 }

@@ -12,13 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_string(int fd, va_list args)
+int	ft_printf_string(int fd, char *string)
 {
-	char	*word;
-
-	word = va_arg(args, char *);
-	if (!word)
-		word = "(null)";
-	ft_putstr_fd(word, fd);
-	return (ft_strlen(word));
+	if (!string)
+		string = "(null)";
+	ft_putstr_fd(string, fd);
+	return (ft_strlen(string));
 }
