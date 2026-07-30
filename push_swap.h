@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/18 02:16:28 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/30 10:57:53 by fsayuri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ void	op_rr(t_push_swap *data);
 void	op_rra(t_push_swap *data);
 void	op_rrb(t_push_swap *data);
 void	op_rrr(t_push_swap *data);
+
+void	sort_complex(t_push_swap *data);
 
 #endif

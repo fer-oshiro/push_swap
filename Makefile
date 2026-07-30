@@ -10,7 +10,8 @@ SRCS = main.c parse_flag.c parse_int.c \
 		disorder_metric.c benchmark.c stack_indexes.c \
 		sort_small.c \
 		handle_op_push.c handle_op_rotate.c \
-		handle_op_reverse_rotate.c handle_op_swap.c
+		handle_op_reverse_rotate.c handle_op_swap.c \
+		sort_complex.c
 
 
 # Makeflags
