@@ -6,7 +6,7 @@
 /*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:29:04 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/31 11:06:03 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/31 11:41:44 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	print_benchmark(t_push_swap *data, double disorder);
 void	set_stack_indexes(t_stack *stack);
 void	sort_small(t_push_swap *data);
 void	sort_medium(t_push_swap *data);
+void	select_algorithm(t_push_swap *data);
+static void	sort_three(t_push_swap *data);
 
 void	op_pa(t_push_swap *data);
 void	op_pb(t_push_swap *data);
