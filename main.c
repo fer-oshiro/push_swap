@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	if (disorder != 0.0)
 	{
 		set_stack_indexes(data.stack_a);
-		sort_simple(&data);
+		// sort_simple(&data);
 		// if (data.size <= 3)
 		// 	sort_small(&data);
 	}

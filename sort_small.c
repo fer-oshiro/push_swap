@@ -12,44 +12,72 @@
 
 #include "push_swap.h"
 
-static void	sort_three(t_push_swap *data)
+static void	move_node_to_top(t_push_swap *data, t_node *target)
 {
-	int	first;
-	int	second;
-	int	third;
+	int	cost;
 
-	first = data->stack_a->start->content;
-	second = data->stack_a->start->next->content;
-	third = data->stack_a->start->prev->content;
-	if (first > second && first < third)
-		op_sa(data);
-	else if (first > second && second > third)
+	cost = rotation_cost(data->stack_a, target);
+	while (cost > 0)
 	{
-		op_sa(data);
-		op_rra(data);
-	}
-	else if (first > second && first > third)
 		op_ra(data);
-	else if (first < second && first < third)
+		cost--;
+	}
+	while (cost < 0)
 	{
-		op_sa(data);
-		op_ra(data);
-	}
-	else
 		op_rra(data);
+		cost++;
+	}
 }
 
-void	sort_small(t_push_swap *data)
+static void	sort_2(t_push_swap *data)
 {
-	if (!data || !data->stack_a || data->stack_a->size < 2)
-		return ;
-	if (data->stack_a->size == 2)
-	{
-		if (data->stack_a->start->content
-			> data->stack_a->start->next->content)
-			op_sa(data);
-		return ;
-	}
-	if (data->stack_a->size == 3)
-		sort_three(data);
+	t_node	*first;
+	t_node	*second;
+
+	first = data->stack_a->start;
+	second = first->next;
+	if (first->index > second->index)
+		op_sa(data);
+}
+
+static void	sort_3(t_push_swap *data)
+{
+	t_node	*max;
+	int		max_position;
+
+	max = stack_max(data->stack_a);
+	max_position = stack_position(data->stack_a, max);
+	if (max_position == 0)
+		op_ra(data);
+	else if (max_position == 1)
+		op_rra(data);
+	if (data->stack_a->start->index
+		> data->stack_a->start->next->index)
+		op_sa(data);
+}
+
+static void	sort_4(t_push_swap *data)
+{
+	t_node	*min;
+
+	min = stack_min(data->stack_a);
+	move_node_to_top(data, min);
+	op_pb(data);
+	sort_3(data);
+	op_pa(data);
+}
+
+static void	sort_5(t_push_swap *data)
+{
+	t_node	*min;
+
+	min = stack_min(data->stack_a);
+	move_node_to_top(data, min);
+	op_pb(data);
+	min = stack_min(data->stack_a);
+	move_node_to_top(data, min);
+	op_pb(data);
+	sort_3(data);
+	op_pa(data);
+	op_pa(data);
 }
