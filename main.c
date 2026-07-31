@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:27:33 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/30 16:30:20 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/31 14:00:51 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	if (disorder != 0.0)
 	{
 		set_stack_indexes(data.stack_a);
-		// sort_simple(&data);
+		select_algorithm(&data);
 		// if (data.size <= 3)
 		// 	sort_small(&data);
 	}
