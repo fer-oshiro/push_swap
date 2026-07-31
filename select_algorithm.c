@@ -6,20 +6,23 @@
 /*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 11:31:05 by staut             #+#    #+#             */
-/*   Updated: 2026/07/31 11:35:21 by staut            ###   ########.fr       */
+/*   Updated: 2026/07/31 12:22:49 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_handle_small_stacks(t_push_swap *data);
+
 void	select_algorithm(t_push_swap *data)
 {
 	double	disorder;
 
-	if (data->stack_a->size <= 3)
-		sort_three(data);
-	else if (data->stack_a->size <= 5)
-		sort_small(data);
+	if (data->stack_a->size <= 5)
+	{
+		ft_handle_small_stacks(data);
+		return ;
+	}
 	else if (data->strategy == STRAT_SIMPLE)
 		sort_simple(data);
 	else if (data->strategy == STRAT_MEDIUM)
@@ -36,4 +39,19 @@ void	select_algorithm(t_push_swap *data)
 		else
 			sort_complex(data);
 	}
+}
+
+void	ft_handle_small_stacks(t_push_swap *data)
+{
+	int	len;
+
+	len = data->stack_a->size;
+	if (len == 2)
+		sort_2(data);
+	else if (len == 3)
+		sort_3(data);
+	else if (len == 4)
+		sort_4(data);
+	else if (len == 5)
+		sort_5(data);
 }

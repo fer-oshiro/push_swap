@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 00:00:00 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/29 00:00:00 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/07/31 12:24:16 by staut            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	move_node_to_top(t_push_swap *data, t_node *target)
 	}
 }
 
-static void	sort_2(t_push_swap *data)
+void	sort_2(t_push_swap *data)
 {
 	t_node	*first;
 	t_node	*second;
@@ -40,7 +40,7 @@ static void	sort_2(t_push_swap *data)
 		op_sa(data);
 }
 
-static void	sort_3(t_push_swap *data)
+void	sort_3(t_push_swap *data)
 {
 	t_node	*max;
 	int		max_position;
@@ -56,7 +56,7 @@ static void	sort_3(t_push_swap *data)
 		op_sa(data);
 }
 
-static void	sort_4(t_push_swap *data)
+void	sort_4(t_push_swap *data)
 {
 	t_node	*min;
 
@@ -67,7 +67,7 @@ static void	sort_4(t_push_swap *data)
 	op_pa(data);
 }
 
-static void	sort_5(t_push_swap *data)
+void	sort_5(t_push_swap *data)
 {
 	t_node	*min;
 
