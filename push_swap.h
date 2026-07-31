@@ -110,5 +110,6 @@ void	op_rrb(t_push_swap *data);
 void	op_rrr(t_push_swap *data);
 
 void	sort_complex(t_push_swap *data);
+void	sort_simple(t_push_swap *data);
 
 #endif

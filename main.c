@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-#include <stdio.h>
-
 void	print_int(int n)
 {
 	ft_printf(2, "%d\n", n);
@@ -37,7 +35,7 @@ int	main(int argc, char **argv)
 	if (disorder != 0.0)
 	{
 		set_stack_indexes(data.stack_a);
-		sort_complex(&data);
+		// sort_simple(&data);
 		// if (data.size <= 3)
 		// 	sort_small(&data);
 	}
