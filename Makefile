@@ -11,7 +11,7 @@ SRCS = main.c parse_flag.c parse_int.c \
 		sort_small.c \
 		handle_op_push.c handle_op_rotate.c \
 		handle_op_reverse_rotate.c handle_op_swap.c \
-		sort_complex.c sort_simples.c
+		sort_complex.c sort_medium.c sort_simples.c
 
 
 # Makeflags
