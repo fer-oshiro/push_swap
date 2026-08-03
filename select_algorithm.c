@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   select_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 11:31:05 by staut             #+#    #+#             */
-/*   Updated: 2026/07/31 12:22:49 by staut            ###   ########.fr       */
+/*   Updated: 2026/08/03 10:45:43 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	select_algorithm(t_push_swap *data)
 		disorder = compute_disorder(data);
 		if (disorder < 0.2)
 			sort_simple(data);
-		else if (disorder < 0.5) // Limiar para algoritmo MEDIUM [2]
+		else if (disorder < 0.5)
 			sort_medium(data);
 		else
 			sort_complex(data);

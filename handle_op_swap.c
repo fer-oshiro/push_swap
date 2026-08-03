@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_op_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 11:49:48 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 11:50:27 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:44:14 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	op_sa(t_push_swap *data)
 		return ;
 	data->ops.sa++;
 	data->ops.total++;
-	ft_printf(1, "sa\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "sa\n");
 }
 
 void	op_sb(t_push_swap *data)
@@ -47,7 +48,8 @@ void	op_sb(t_push_swap *data)
 		return ;
 	data->ops.sb++;
 	data->ops.total++;
-	ft_printf(1, "sb\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "sb\n");
 }
 
 void	op_ss(t_push_swap *data)
@@ -61,5 +63,6 @@ void	op_ss(t_push_swap *data)
 		return ;
 	data->ops.ss++;
 	data->ops.total++;
-	ft_printf(1, "ss\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "ss\n");
 }
