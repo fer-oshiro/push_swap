@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staut <staut@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 10:51:10 by staut             #+#    #+#             */
-/*   Updated: 2026/07/31 11:24:29 by staut            ###   ########.fr       */
+/*   Updated: 2026/08/03 13:52:34 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ int	ft_find_max_index_pos(t_stack *stack)
 	return (max_pos);
 }
 
-void ft_push_back_to_a(t_push_swap *data)
+void	ft_push_back_to_a(t_push_swap *data)
 {
-    int max_pos;
+	int	max_pos;
 
-    while(data->stack_b->size > 0)
-    {
-        max_pos = ft_find_max_index_pos(data->stack_b);
-        ft_move_to_top_b(data, max_pos);
-        op_pa(data);
-    }
+	while (data->stack_b->size > 0)
+	{
+		max_pos = ft_find_max_index_pos(data->stack_b);
+		ft_move_to_top_b(data, max_pos);
+		op_pa(data);
+	}
 }
 
 int	ft_calculate_chunk_size(int len)
@@ -82,28 +82,28 @@ int	ft_calculate_chunk_size(int len)
 	return (45);
 }
 
-void sort_medium(t_push_swap *data)
+void	sort_medium(t_push_swap *data)
 {
-    int i;
-    int chunk;
+	int	i;
+	int	chunk;
 
-    i = 0;
-    chunk = ft_calculate_chunk_size(data->stack_a->size);
-    while(data->stack_a->size >0)
-    {
-        if (data->stack_a->start->index <= i)
-        {
-            op_pb(data);
-            op_rb(data);
-            i++;
-        }
-        else if (data->stack_a->start->index <= i + chunk)
-        {
-            op_pb(data);
-            i++;
-        } 
-        else
-            op_ra(data);
-    }
-    ft_push_back_to_a(data);
+	i = 0;
+	chunk = ft_calculate_chunk_size(data->stack_a->size);
+	while (data->stack_a->size > 0)
+	{
+		if (data->stack_a->start->index <= i)
+		{
+			op_pb(data);
+			op_rb(data);
+			i++;
+		}
+		else if (data->stack_a->start->index <= i + chunk)
+		{
+			op_pb(data);
+			i++;
+		}
+		else
+			op_ra(data);
+	}
+	ft_push_back_to_a(data);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_op_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 00:00:00 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/28 00:00:00 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:43:24 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	op_rra(t_push_swap *data)
 		return ;
 	data->ops.rra++;
 	data->ops.total++;
-	ft_printf(1, "rra\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "rra\n");
 }
 
 void	op_rrb(t_push_swap *data)
@@ -35,7 +36,8 @@ void	op_rrb(t_push_swap *data)
 		return ;
 	data->ops.rrb++;
 	data->ops.total++;
-	ft_printf(1, "rrb\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "rrb\n");
 }
 
 void	op_rrr(t_push_swap *data)
@@ -49,5 +51,6 @@ void	op_rrr(t_push_swap *data)
 		return ;
 	data->ops.rrr++;
 	data->ops.total++;
-	ft_printf(1, "rrr\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "rrr\n");
 }

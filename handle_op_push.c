@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_op_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 10:15:16 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 10:36:31 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:43:02 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	op_pa(t_push_swap *data)
 	dlst_add_front(data->stack_a, node);
 	data->ops.pa++;
 	data->ops.total++;
-	ft_printf(1, "pa\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "pa\n");
 }
 
 void	op_pb(t_push_swap *data)
@@ -35,5 +36,6 @@ void	op_pb(t_push_swap *data)
 	dlst_add_front(data->stack_b, node);
 	data->ops.pb++;
 	data->ops.total++;
-	ft_printf(1, "pb\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "pb\n");
 }

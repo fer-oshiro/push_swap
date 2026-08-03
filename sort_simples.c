@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simples.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:39:11 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/30 17:39:50 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:47:46 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	sort_simple(t_push_swap *data)
 		}
 		op_pb(data);
 	}
-	while (data->stack_b->size) {
+	while (data->stack_b->size)
 		op_pa(data);
-	}
 }

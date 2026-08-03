@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_op_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsayuri- <fsayuri-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aschulz- <aschulz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 10:15:20 by fsayuri-          #+#    #+#             */
-/*   Updated: 2026/07/15 11:51:21 by fsayuri-         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:43:46 by aschulz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	op_ra(t_push_swap *data)
 		return ;
 	data->ops.ra++;
 	data->ops.total++;
-	ft_printf(1, "ra\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "ra\n");
 }
 
 void	op_rb(t_push_swap *data)
@@ -35,7 +36,8 @@ void	op_rb(t_push_swap *data)
 		return ;
 	data->ops.rb++;
 	data->ops.total++;
-	ft_printf(1, "rb\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "rb\n");
 }
 
 void	op_rr(t_push_swap *data)
@@ -49,5 +51,6 @@ void	op_rr(t_push_swap *data)
 		return ;
 	data->ops.rr++;
 	data->ops.total++;
-	ft_printf(1, "rr\n");
+	if (data->bench == FALSE)
+		ft_printf(1, "rr\n");
 }
